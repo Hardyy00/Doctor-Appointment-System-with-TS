@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  section {
+    @apply py-4 px-6 w-full;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply text-white bg-primaryColor py-2 px-6 rounded-full hover:bg-blue-600;
+  }
+
+  .container {
+    @apply w-full max-w-[90%] w-[1440px] leading-9;
+  }
+
+  .header {
+    @apply bg-[url('./assets/images/hb.jpg')];
+  }
+}
