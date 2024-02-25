@@ -1,0 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Manrope", sans-serif;
+}
+
+@media only screen and (max-width: 1268px) {
+  .container {
+    @apply w-full;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .navigation {
+    position: absolute;
+    left: 0;
+  }
+}

@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  section {
+    @apply py-4;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply text-white bg-primaryColor py-2 px-4 rounded-full hover:bg-blue-600;
+  }
+
+  .container {
+    @apply w-full py-2 px-3;
+  }
+}

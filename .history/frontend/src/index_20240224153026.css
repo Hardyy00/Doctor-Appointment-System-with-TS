@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  section {
+    @apply mt-[2rem];
+  }
+}
+
+@layer components {
+  .btn {
+    @apply text-white bg-primaryColor py-2 px-3 rounded-md;
+  }
+}
