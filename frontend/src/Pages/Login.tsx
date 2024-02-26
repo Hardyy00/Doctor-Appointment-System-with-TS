@@ -3,7 +3,7 @@ import fig from "../assets/images/si.json";
 
 const Login: React.FC = () => {
   return (
-    <div className="flex max-sm:flex-col mx-auto w-full max-w-[70%] items-center  h-[34rem] mt-10  ">
+    <div className="flex max-sm:flex-co mx-auto w-full max-w-[70%] items-center  h-[34rem] mt-10  ">
       <div className="w-[50%] h-full">
         <Lottie animationData={fig} loop={false} />
       </div>
