@@ -24,4 +24,12 @@
   .home {
     @apply bg-[url('./assets/images/bg.jpg')] bg-no-repeat bg-cover bg-center;
   }
+
+  .login_input {
+    @apply border-b-2 border-b-black/50 w-full outline-none;
+  }
+
+  .input-row {
+    @apply w-full;
+  }
 }

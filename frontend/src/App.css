@@ -9,6 +9,7 @@
 body {
   font-family: "Manrope", sans-serif;
   height: 100%;
+  background-color: #f8f9fa;
 }
 
 @media only screen and (max-width: 1268px) {
