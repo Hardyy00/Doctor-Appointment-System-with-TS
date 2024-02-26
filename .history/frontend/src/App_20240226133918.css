@@ -17,12 +17,7 @@ body {
   }
 }
 
-@media only screen and (min-width: 650px) {
-  .big {
-  }
-}
-
-@media only screen and (max-width: 768px) {
+@media only screen and (min-width: 7) @media only screen and (max-width: 768px) {
   section {
     padding-inline: 0;
   }
@@ -58,8 +53,4 @@ body {
   .container {
     line-height: 1.5rem;
   }
-}
-
-::-webkit-scrollbar {
-  display: none;
 }

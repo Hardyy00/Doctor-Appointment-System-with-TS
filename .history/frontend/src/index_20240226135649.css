@@ -10,7 +10,7 @@
 
 @layer components {
   .btn {
-    @apply text-white bg-primaryColor py-1 px-6 rounded-full hover:bg-blue-800;
+    @apply text-white bg-primaryColor py-1 px-6 rounded-full hover:bg-blue-600;
   }
 
   .container {

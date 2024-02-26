@@ -17,16 +17,12 @@ const DoctorCollage: React.FC = () => {
         <img
           src={Doc2}
           alt=""
-          className="max-sm:w-full max-sm:h-[14rem] h-full rounded-lg"
+          className="max-sm:w-full max-sm:h-[14rem] h-full"
         />
       </div>
 
       <div className="col-span-2 max-sm:w-full max-sm:h-[14rem] flex justify-center h-44">
-        <img
-          src={Doc3}
-          alt=""
-          className="max-sm:w-[full] max-sm:h-[14rem] rounded-lg"
-        />
+        <img src={Doc3} alt="" className="max-sm:w-[full] max-sm:h-[14rem]" />
       </div>
     </div>
   );

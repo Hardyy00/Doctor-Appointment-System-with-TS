@@ -18,8 +18,6 @@ body {
 }
 
 @media only screen and (min-width: 650px) {
-  .big {
-  }
 }
 
 @media only screen and (max-width: 768px) {
@@ -58,8 +56,4 @@ body {
   .container {
     line-height: 1.5rem;
   }
-}
-
-::-webkit-scrollbar {
-  display: none;
 }

@@ -1,4 +1,4 @@
-import Hero from "../components/Hero/Hero";
+import "../components/Hero/Hero";
 
 const Home: React.FC = () => {
   return (

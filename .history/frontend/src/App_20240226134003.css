@@ -59,7 +59,3 @@ body {
     line-height: 1.5rem;
   }
 }
-
-::-webkit-scrollbar {
-  display: none;
-}
