@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  section {
+    @apply py-4 px-6 w-full;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply text-white bg-primaryColor py-1 px-6 rounded-full hover:bg-blue-800;
+  }
+
+  .container {
+    @apply w-full max-w-[90%] w-[1440px] leading-9;
+  }
+
+  .header {
+    @apply bg-[url('./assets/images/bg.jpg')] bg-no-repeat bg-cover bg-center;
+  }
+
+  .home {
+    @apply bg-[url('./assets/images/bg.jpg')] bg-no-repeat bg-cover bg-center;
+  }
+
+  .login_input {
+    @apply border-b-2 border-b-black/50 w-full outline-none;
+  }
+
+  .input-row {
+    @apply w-full;
+  }
+  .select {
+    @apply focus:outline-none active:outline-none border-none outline-none;
+  }
+}

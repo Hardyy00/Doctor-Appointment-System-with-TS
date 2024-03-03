@@ -10,18 +10,28 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.15.11",
+    "@mui/styled-engine-sc": "^6.0.0-alpha.17",
     "lottie-react": "^2.4.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.0.1",
+    "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.22.1",
     "react-spinners": "^0.13.8",
+    "react-swipe": "^6.0.4",
     "react-toastify": "^10.0.4",
-    "swipejs": "^2.3.1"
+    "styled-components": "^6.1.8",
+    "swipe-js-iso": "^2.1.5",
+    "swipejs": "^2.3.1",
+    "swiper": "^11.0.7"
   },
   "devDependencies": {
     "@types/react": "^18.2.56",
     "@types/react-dom": "^18.2.19",
+    "@types/react-swipe": "^6.0.4",
     "@typescript-eslint/eslint-plugin": "^7.0.2",
     "@typescript-eslint/parser": "^7.0.2",
     "@vitejs/plugin-react": "^4.2.1",
