@@ -6,6 +6,8 @@ const Settings: React.FC = () => {
 
   const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
+    console.log(image);
   };
   return (
     <div className="flex flex-col gap-[2rem]">
@@ -61,7 +63,7 @@ const Settings: React.FC = () => {
               <img
                 src={URL.createObjectURL(image)}
                 alt=""
-                className="object-cover w-full h-full"
+                className="object-cover h-full"
               />
             )}
           </div>
@@ -83,7 +85,7 @@ const Settings: React.FC = () => {
           </div>
         </div>
 
-        <button className="btn p-[1rem] rounded-md font-[600] text-[1.1rem] w-[60%] self-center">
+        <button className="btn p-[1rem] rounded-md font-[600] text-[1.1rem]">
           Update
         </button>
       </form>

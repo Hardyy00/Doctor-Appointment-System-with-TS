@@ -62,7 +62,7 @@ const Header: React.FC = () => {
           </div>
 
           <div className="flex items-center gap-4 justify-center">
-            <Link to={"/profile"} className="">
+            <Link to={"/profile"} className="hidden">
               <figure className="w-12 h-12 md:w-12 md:h-12 flex items-center rounded-full">
                 <img src={Prof} alt="" className="rounded-full w-12 h-12 " />
               </figure>

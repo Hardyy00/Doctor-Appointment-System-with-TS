@@ -83,7 +83,7 @@ const Settings: React.FC = () => {
           </div>
         </div>
 
-        <button className="btn p-[1rem] rounded-md font-[600] text-[1.1rem] w-[60%] self-center">
+        <button className="btn p-[1rem] rounded-md font-[600] text-[1.1rem] w-[60%]">
           Update
         </button>
       </form>

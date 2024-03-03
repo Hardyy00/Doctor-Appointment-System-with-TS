@@ -1,4 +1,4 @@
-import { User } from "../../assets/data/doctors";
+import { Appointment, User } from "../../assets/data/doctors";
 import DoctorCard from "../DoctorCard/DoctorCard";
 
 const MyBookings: React.FC<{ user: User }> = ({ user }) => {
