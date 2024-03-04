@@ -4,6 +4,7 @@ const Contact: React.FC = () => {
 
     const data = new FormData(event.target as HTMLFormElement); // type casting
     const obj = Object.fromEntries(data.entries());
+    console.log(obj);
   };
   return (
     <section className="py-[2rem] w-full text-textColor flex flex-col items-center gap-[1rem]">

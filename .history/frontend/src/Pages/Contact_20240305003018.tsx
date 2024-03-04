@@ -2,8 +2,7 @@ const Contact: React.FC = () => {
   const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const data = new FormData(event.target as HTMLFormElement); // type casting
-    const obj = Object.fromEntries(data.entries());
+    console.log(event.target);
   };
   return (
     <section className="py-[2rem] w-full text-textColor flex flex-col items-center gap-[1rem]">

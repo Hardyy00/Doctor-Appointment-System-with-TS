@@ -33,7 +33,7 @@ const Header: React.FC = () => {
   };
 
   return (
-    <section className="header flex items-center justify-center px-[1rem] py-[0.6rem]">
+    <section className="header flex items-center justify-center px-[1rem]">
       <div className="container">
         <div className="flex items-center justify-between gap-[1rem]">
           <div className="">

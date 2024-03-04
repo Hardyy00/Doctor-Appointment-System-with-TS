@@ -1,20 +1,10 @@
 const Contact: React.FC = () => {
-  const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-
-    const data = new FormData(event.target as HTMLFormElement); // type casting
-    const obj = Object.fromEntries(data.entries());
-  };
   return (
-    <section className="py-[2rem] w-full text-textColor flex flex-col items-center gap-[1rem]">
+    <section className="py-[2rem] w-full text-textColor flex flex-col items-center gap-[2rem]">
       <h1 className="font-[800] text-[1.8rem]">
         Contact <span className="text-primaryColor">Us</span>
       </h1>
-      <form
-        action=""
-        className="mx-auto w-[50%] flex flex-col gap-[1.5rem]"
-        onSubmit={submitHandler}
-      >
+      <form action="" className="mx-auto w-[50%] flex flex-col gap-[1.5rem] ">
         <div className="contact_row">
           <label htmlFor="email" className="block mb-2 font-[800]">
             Your Email

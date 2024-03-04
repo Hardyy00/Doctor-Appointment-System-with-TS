@@ -99,7 +99,7 @@ const Home: React.FC = () => {
           Our Great Doctors
         </h1>
         <p className="md:w-[28rem] text-textColor w-[22rem]">
-          World-class care for everyone. Our health System offers unmatched,
+          World-clas care for everyone. Our health System offers unmatched,
           expert health care.
         </p>
 

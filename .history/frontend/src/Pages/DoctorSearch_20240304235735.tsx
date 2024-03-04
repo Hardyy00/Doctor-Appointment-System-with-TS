@@ -17,7 +17,7 @@ const DoctorSearch: React.FC = () => {
       </article>
 
       <article className="py-[3rem]  px-[1rem] g:px-[4rem] w-full">
-        <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-y-10 gap-x-4 place-items-center">
+        <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-y-10 gap-x-4 place-content-center">
           {doctors.map((item) => (
             <DoctorCard key={item.id} doctor={item} />
           ))}
