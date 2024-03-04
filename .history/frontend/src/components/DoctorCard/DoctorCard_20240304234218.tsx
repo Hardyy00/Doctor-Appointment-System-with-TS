@@ -5,7 +5,7 @@ import Star from "../../assets/images/Star.png";
 
 const DoctorCard: React.FC<{ doctor: Doctor }> = ({ doctor }) => {
   return (
-    <div className="flex flex-col gap-[0.5rem] text-left">
+    <div className="flex flex-col gap-[0.5rem] text-left max-w-[90%]">
       <div className="w-full h-[16rem]">
         <img src={doctor.image} alt="" className="object-cover h-full" />
       </div>
