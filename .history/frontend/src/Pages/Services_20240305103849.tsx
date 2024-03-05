@@ -21,6 +21,7 @@ const ServiceCard: React.FC<{ service: Service; index: number }> = ({
   service,
   index,
 }) => {
+  console.log(col);
   return (
     <div className="flex flex-col gap-4">
       <h2>{service.name}</h2>

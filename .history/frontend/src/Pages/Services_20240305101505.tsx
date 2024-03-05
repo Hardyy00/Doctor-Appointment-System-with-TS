@@ -17,21 +17,18 @@ const Services: React.FC = () => {
   );
 };
 
-const ServiceCard: React.FC<{ service: Service; index: number }> = ({
-  service,
-  index,
-}) => {
+const ServiceCard: React.FC<{ service: Service }> = ({ service }) => {
   return (
-    <div className="flex flex-col gap-4">
+    <div>
       <h2>{service.name}</h2>
 
       <p>{service.desc}</p>
 
-      <div className="flex items-center justify-between h-[2rem]">
+      <div>
         <FaArrowRight />
-        <p className={`h-full  w-[2rem] flex items-center justify-center`}>
-          {index}
-        </p>
+        <div>
+          <p>{}</p>
+        </div>
       </div>
     </div>
   );

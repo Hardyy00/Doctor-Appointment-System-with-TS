@@ -21,6 +21,7 @@ const ServiceCard: React.FC<{ service: Service; index: number }> = ({
   service,
   index,
 }) => {
+  const col = `bg-${service.textColor}`;
   return (
     <div className="flex flex-col gap-4">
       <h2>{service.name}</h2>
@@ -29,7 +30,9 @@ const ServiceCard: React.FC<{ service: Service; index: number }> = ({
 
       <div className="flex items-center justify-between h-[2rem]">
         <FaArrowRight />
-        <p className={`h-full  w-[2rem] flex items-center justify-center`}>
+        <p
+          className={`h-full ${col} w-[2rem] flex items-center justify-center`}
+        >
           {index}
         </p>
       </div>

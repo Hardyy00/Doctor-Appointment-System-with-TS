@@ -29,7 +29,9 @@ const ServiceCard: React.FC<{ service: Service; index: number }> = ({
 
       <div className="flex items-center justify-between h-[2rem]">
         <FaArrowRight />
-        <p className={`h-full  w-[2rem] flex items-center justify-center`}>
+        <p
+          className={`h-full bg-[#50d71e] w-[2rem] flex items-center justify-center`}
+        >
           {index}
         </p>
       </div>

@@ -5,14 +5,12 @@ import Star from "../../assets/images/Star.png";
 
 const DoctorCard: React.FC<{ doctor: Doctor }> = ({ doctor }) => {
   return (
-    <div className="flex flex-col gap-[0.5rem] text-left">
-      <div className="w-full h-[80%] rounded-lg overflow-hidden">
-        <img src={doctor.image} alt="" className="object-cover h-full w-full" />
+    <div className="flex flex-col gap-[0.5rem] text-left w-[18rem]">
+      <div className="w-full h-[16rem] rounded-lg overflow-hidden">
+        <img src={doctor.image} alt="" className="object-cover h-full" />
       </div>
 
-      <h2 className="font-[800] md:text-[1.4rem] text-[1.1rem]">
-        {doctor.name}
-      </h2>
+      <h2 className="font-[800] text-[1.4rem]">{doctor.name}</h2>
       <div className="flex items-center justify-between ">
         <p className="p-[1rem] text-irisBlueColor font-[800] bg-teal-200 rounded-lg">
           {doctor.specialization}
@@ -25,7 +23,7 @@ const DoctorCard: React.FC<{ doctor: Doctor }> = ({ doctor }) => {
       </div>
 
       <div className="flex items-center justify-between">
-        <p className="text-[80%]">{doctor.hospital}</p>
+        <p>{doctor.hospital}</p>
 
         <Link
           to={`/doctor/${doctor.id}`}

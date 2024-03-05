@@ -4,9 +4,9 @@ import DoctorCard from "../components/DoctorCard/DoctorCard";
 const DoctorSearch: React.FC = () => {
   return (
     <section className="w-full p-0">
-      <article className="w-full flex flex-col items-center justify-center gap-[3rem] md:p-[4rem] py-[4rem] px-[0.8rem] bg-gradient-to-r from-rose-400 to-red-500">
+      <article className="w-full flex flex-col items-center justify-center gap-[3rem] p-[4rem] bg-gradient-to-r from-rose-400 to-red-500">
         <h1 className="font-[800] text-[2rem] text-white">Find a Doctor</h1>
-        <div className="flex lg:w-[35%] items-center relative h-[3.5rem] rounded-3xl md:w-[80%] w-[100%]">
+        <div className="flex lg:w-[35%] items-center relative h-[3.5rem] rounded-3xl w-[60%]">
           <input
             type="text"
             className="w-full h-full outline-none active:outline-none focus:outline-none p-[1rem] text-[1.1rem] text-primaryColor font-[800] border-[0.3rem] border-primaryColor focus:border-purple-500 focus:bg-white focus:placeholder:text-red-300 rounded-3xl transition duration-300 ease-in hover:bg-purple-300/50 placeholder:text-red-300  hover:placeholder:text-white tracking-wider"
