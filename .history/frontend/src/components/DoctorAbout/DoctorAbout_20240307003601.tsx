@@ -30,8 +30,8 @@ const DoctorAbout: React.FC<{ doctor: Doctor }> = ({ doctor }) => {
         <h2 className="font-[800] text-[1.4rem] tracking-wide">Experience</h2>
 
         <div className="w-full grid grid-cols-2 gap-[2rem] mt-[2rem] pl-4">
-          {doctor.experience?.map((item, index) => (
-            <ExperienceDiv experience={item} key={index + 1} />
+          {doctor.experience?.map((item) => (
+            <ExperienceDiv experience={item} />
           ))}
         </div>
       </div>

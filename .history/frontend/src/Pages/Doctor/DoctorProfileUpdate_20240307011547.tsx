@@ -74,9 +74,7 @@ const DoctorProfileUpdate = () => {
               defaultValue={doctor.gender}
             >
               <option value="">Select</option>
-              <option value="male" defaultChecked={true}>
-                Male
-              </option>
+              <option value="male">Male</option>
               <option value="female">Female</option>
               <option value="other">Other</option>
             </select>
@@ -106,7 +104,6 @@ const DoctorProfileUpdate = () => {
               type="number"
               defaultValue={doctor.ticketPrice ?? 0}
               className="update_select"
-              name="ticketPrice"
             />
           </div>
         </div>

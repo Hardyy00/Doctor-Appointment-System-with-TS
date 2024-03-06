@@ -61,10 +61,6 @@
   }
 
   .update_input {
-    @apply w-full p-4 border border-slate-400 rounded-lg focus:border-primaryColor focus:outline-none font-[600] tracking-wider text-[1.1rem] my-2 active:outline-none outline-none;
-  }
-
-  .update_select {
-    @apply mt-2 w-[10rem] border border-slate-400 p-[1rem] rounded-lg text-primaryColor font-[600] outline-none active:outline-none focus:outline-none;
+    @apply w-full p-4;
   }
 }

@@ -74,7 +74,7 @@ const DoctorProfileUpdate = () => {
               defaultValue={doctor.gender}
             >
               <option value="">Select</option>
-              <option value="male" defaultChecked={true}>
+              <option value="male" defaultChecked={doctor.gender === "male"}>
                 Male
               </option>
               <option value="female">Female</option>

@@ -74,9 +74,7 @@ const DoctorProfileUpdate = () => {
               defaultValue={doctor.gender}
             >
               <option value="">Select</option>
-              <option value="male" defaultChecked={true}>
-                Male
-              </option>
+              <option value="male">Male</option>
               <option value="female">Female</option>
               <option value="other">Other</option>
             </select>
@@ -87,7 +85,7 @@ const DoctorProfileUpdate = () => {
               Specialization*
             </label>
             <select
-              name="specialization"
+              name=""
               id=""
               className="update_select"
               defaultValue={doctor.specialization}
@@ -102,12 +100,7 @@ const DoctorProfileUpdate = () => {
             <label htmlFor="" className="block">
               Ticket Price*
             </label>
-            <input
-              type="number"
-              defaultValue={doctor.ticketPrice ?? 0}
-              className="update_select"
-              name="ticketPrice"
-            />
+            <input type="number" defaultValue={0} className="update_select" />
           </div>
         </div>
         <button className="btn w-[80%] self-center p-4 mt-4 font-[600] rounded-md">
