@@ -89,20 +89,6 @@ export const doctor: Doctor = {
     {
       id: "a1",
       user: { name: "Hardik Gaur", gender: "Male" },
-      ticketPrice: 800,
-      appointmentDate: "27 March, 2024",
-      status: "approved",
-      isPaid: true,
-      timeStamp: "18 March, 2024",
-    },
-    {
-      id: "a2",
-      user: { name: "Hardik Gaur", gender: "Male" },
-      ticketPrice: 800,
-      appointmentDate: "27 March, 2024",
-      status: "approved",
-      isPaid: true,
-      timeStamp: "18 March, 2024",
     },
   ],
 };

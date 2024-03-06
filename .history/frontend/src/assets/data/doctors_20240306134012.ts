@@ -33,7 +33,7 @@ export type User = {
   email?: string;
   name: string;
   phone?: number;
-  image?: string;
+  image: string;
   role?: string;
   gender?: string;
   bloodType?: string;

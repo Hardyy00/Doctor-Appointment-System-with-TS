@@ -33,7 +33,7 @@ export type User = {
   email?: string;
   name: string;
   phone?: number;
-  image?: string;
+  image: string;
   role?: string;
   gender?: string;
   bloodType?: string;
@@ -42,8 +42,8 @@ export type User = {
 
 export type Appointment = {
   id: string;
-  doctor?: Doctor;
-  user?: User;
+  doctor: Doctor;
+  user: User;
   ticketPrice: number;
   appointmentDate: string;
   status: string;
@@ -72,7 +72,6 @@ export interface Doctor {
   timeSlots?: TimeSlot[];
   reviews?: Review[];
   isApproved?: string;
-  appointments?: Appointment[];
 }
 
 const doctors: Doctor[] = [
