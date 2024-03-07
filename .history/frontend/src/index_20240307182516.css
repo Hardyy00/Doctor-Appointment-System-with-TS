@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  section {
+    @apply py-4 px-6 w-full;
+  }
+
+  option {
+    @apply border-red-500;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply text-white bg-primaryColor py-1 px-6 rounded-full hover:bg-blue-800;
+  }
+
+  .container {
+    @apply w-full max-w-[90%] w-[1440px] leading-9;
+  }
+
+  .header {
+    @apply bg-[url('./assets/images/bg.jpg')] bg-no-repeat bg-cover bg-center;
+  }
+
+  .home {
+    @apply bg-[url('./assets/images/bg.jpg')] bg-no-repeat bg-cover bg-center;
+  }
+
+  .login_input {
+    @apply border-b-2 border-b-black/50 w-full outline-none px-2 py-1 focus:border-b-primaryColor font-[600];
+  }
+
+  .input-row {
+    @apply w-full;
+  }
+  .select {
+    @apply focus:outline-none active:outline-none border-none outline-none text-primaryColor font-[800];
+  }
+
+  .icon_container {
+    @apply w-[2.5rem] h-[2.5rem] rounded-[50%] flex items-center justify-center border-black  border-[1px];
+  }
+
+  .list {
+    @apply flex flex-col gap-[1rem];
+  }
+
+  .footer-headings {
+    @apply font-[800];
+  }
+
+  .member {
+    @apply hover:text-primaryColor cursor-pointer;
+  }
+
+  .card {
+    @apply flex flex-col items-center justify-center gap-[1rem] w-[22rem] h-[26rem];
+  }
+
+  .update_input {
+    @apply w-full p-4 border border-slate-400 rounded-lg focus:border-primaryColor focus:outline-none font-[600] tracking-wider text-[1.1rem] my-2 active:outline-none outline-none;
+  }
+
+  .update_select {
+    @apply mt-2 w-[10rem] border border-slate-400 p-[1rem] rounded-lg text-primaryColor font-[600] outline-none active:outline-none focus:outline-none;
+  }
+
+  .btn_form {
+    @apply p-[1rem] text-white bg-black rounded-lg font-[600];
+  }
+}
