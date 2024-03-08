@@ -69,6 +69,6 @@
   }
 
   .btn_form {
-    @apply p-[1rem] text-white bg-teal-500 rounded-lg font-[600] mt-4 w-[10rem];
+    @apply p-[1rem] text-white bg-teal-500 rounded-2xl font-[600] mt-4 w-[10rem];
   }
 }

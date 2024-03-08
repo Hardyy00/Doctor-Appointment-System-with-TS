@@ -192,7 +192,7 @@ const DoctorProfileUpdate = () => {
           </div>
 
           <div>
-            <label htmlFor="" className="block max-sm:mt-6">
+            <label htmlFor="" className="block">
               Ticket Price*
             </label>
             <input
@@ -204,7 +204,7 @@ const DoctorProfileUpdate = () => {
           </div>
         </div>
 
-        <div className="flex flex-col gap-4">
+        {/* <div className="flex flex-col gap-4">
           <label htmlFor="" className="block">
             Education *
           </label>
@@ -291,8 +291,8 @@ const DoctorProfileUpdate = () => {
           >
             Add Time Slot
           </button>
-        </div>
-        <button className="btn w-[80%] self-center p-4 mt-8 font-[600] rounded-2xl">
+        </div> */}
+        <button className="btn w-[80%] self-center p-4 mt-4 font-[600] rounded-md">
           Update
         </button>
       </form>
@@ -351,7 +351,7 @@ const EducationDiv: React.FC<{
 
       <div className="">
         <div
-          className="border w-[2.6em] h-[2.6rem] flex items-center justify-center rounded-[50%] bg-red-600 hover:scale-110"
+          className="border w-[2.6em] h-[2.6rem] flex items-center justify-center rounded-[50%] bg-red-600"
           onClick={() => remove(index)}
         >
           <MdDelete className="text-white text-[1.5rem]" />

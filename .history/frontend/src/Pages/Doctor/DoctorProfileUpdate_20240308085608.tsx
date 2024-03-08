@@ -4,6 +4,7 @@ import {
   useForm,
   useFieldArray,
   SubmitHandler,
+  FieldArrayWithId,
   UseFormRegister,
   UseFieldArrayRemove,
 } from "react-hook-form";
@@ -152,7 +153,7 @@ const DoctorProfileUpdate = () => {
           />
         </div>
 
-        <div className="flex w-full items-center justify-between flex-wrap">
+        <div className="flex w-full items-center justify-between">
           <div className=" ">
             <label htmlFor="" className="block">
               Gender
@@ -192,7 +193,7 @@ const DoctorProfileUpdate = () => {
           </div>
 
           <div>
-            <label htmlFor="" className="block max-sm:mt-6">
+            <label htmlFor="" className="block">
               Ticket Price*
             </label>
             <input
@@ -212,6 +213,7 @@ const DoctorProfileUpdate = () => {
           {educationFields.map((item, index) => (
             <EducationDiv
               key={item.id}
+              education={item}
               register={register}
               remove={removeEducation}
               index={index}
@@ -221,15 +223,12 @@ const DoctorProfileUpdate = () => {
           <button
             className="btn_form"
             onClick={() =>
-              appendEducation(
-                {
-                  startingDate: "",
-                  endingDate: "",
-                  place: "",
-                  degree: "",
-                },
-                { focusName: "education.0.startingDate" }
-              )
+              appendEducation({
+                startingDate: "",
+                endingDate: "",
+                place: "",
+                degree: "",
+              })
             }
           >
             Add Education
@@ -242,12 +241,7 @@ const DoctorProfileUpdate = () => {
           </label>
 
           {experienceFields.map((item, index) => (
-            <ExperienceDiv
-              key={item.id}
-              index={index}
-              register={register}
-              remove={removeExperience}
-            />
+            <ExperienceDiv key={item.id} experience={item} />
           ))}
 
           <button
@@ -270,15 +264,6 @@ const DoctorProfileUpdate = () => {
             Time Slots
           </label>
 
-          {timeFields.map((item, index) => (
-            <TimeSlotDiv
-              key={item.id}
-              index={index}
-              register={register}
-              remove={removeTime}
-            />
-          ))}
-
           <button
             className="btn_form"
             onClick={() =>
@@ -292,7 +277,7 @@ const DoctorProfileUpdate = () => {
             Add Time Slot
           </button>
         </div>
-        <button className="btn w-[80%] self-center p-4 mt-8 font-[600] rounded-2xl">
+        <button className="btn w-[80%] self-center p-4 mt-4 font-[600] rounded-md">
           Update
         </button>
       </form>
@@ -301,10 +286,15 @@ const DoctorProfileUpdate = () => {
 };
 
 const EducationDiv: React.FC<{
+  education: FieldArrayWithId<
+    FormType,
+    "education" | "experience" | "timeSlots",
+    "id"
+  >;
   index: number;
   register: UseFormRegister<FormType>;
   remove: UseFieldArrayRemove;
-}> = ({ index, register, remove }) => {
+}> = ({ education, index, register, remove }) => {
   return (
     <div className="w-full grid grid-cols-2 gap-x-8 gap-y-4">
       <div>
@@ -351,7 +341,7 @@ const EducationDiv: React.FC<{
 
       <div className="">
         <div
-          className="border w-[2.6em] h-[2.6rem] flex items-center justify-center rounded-[50%] bg-red-600 hover:scale-110"
+          className="border w-[2.6em] h-[2.6rem] flex items-center justify-center rounded-[50%] bg-red-600"
           onClick={() => remove(index)}
         >
           <MdDelete className="text-white text-[1.5rem]" />
@@ -362,59 +352,42 @@ const EducationDiv: React.FC<{
 };
 
 const ExperienceDiv: React.FC<{
-  index: number;
-  register: UseFormRegister<FormType>;
-  remove: UseFieldArrayRemove;
-}> = ({ register, index, remove }) => {
+  experience: FieldArrayWithId<
+    FormType,
+    "education" | "experience" | "timeSlots",
+    "id"
+  >;
+}> = ({ experience }) => {
   return (
     <div className="w-full grid grid-cols-2 gap-x-8 gap-y-4">
       <div>
         <label htmlFor="" className="block">
           Starting Date*
         </label>
-        <input
-          type="date"
-          className="update_input"
-          {...register(`experience.${index}.startingDate` as const)}
-        />
+        <input type="date" className="update_input" />
       </div>
       <div>
         <label htmlFor="" className="block">
           Ending Date*
         </label>
-        <input
-          type="date"
-          className="update_input"
-          {...register(`experience.${index}.endingDate` as const)}
-        />
+        <input type="date" className="update_input" />
       </div>
 
       <div>
         <label htmlFor="" className="block">
           Role*
         </label>
-        <input
-          type="text"
-          className="update_input"
-          {...register(`experience.${index}.role` as const)}
-        />
+        <input type="text" className="update_input" />
       </div>
       <div>
         <label htmlFor="" className="block">
           Place
         </label>
-        <input
-          type="text"
-          className="update_input"
-          {...register(`experience.${index}.place` as const)}
-        />
+        <input type="text" className="update_input" />
       </div>
 
       <div className="">
-        <div
-          className="border w-[2.6em] h-[2.6rem] flex items-center justify-center rounded-[50%] bg-red-600"
-          onClick={() => remove(index)}
-        >
+        <div className="border w-[2.6em] h-[2.6rem] flex items-center justify-center rounded-[50%] bg-red-600">
           <MdDelete className="text-white text-[1.5rem]" />
         </div>
       </div>
@@ -423,57 +396,42 @@ const ExperienceDiv: React.FC<{
 };
 
 const TimeSlotDiv: React.FC<{
-  register: UseFormRegister<FormType>;
-  index: number;
-  remove: UseFieldArrayRemove;
-}> = ({ index, register, remove }) => {
+  timeSlot: FieldArrayWithId<
+    FormType,
+    "education" | "experience" | "timeSlots",
+    "id"
+  >;
+}> = ({ timeSlot }) => {
   return (
-    <div className="w-full grid md:grid-cols-3 grid-cols-2 gap-x-8 gap-y-4">
+    <div className="w-full grid grid-cols-2 gap-x-8 gap-y-4">
       <div>
         <label htmlFor="" className="block">
-          Day*
+          Starting Date*
         </label>
-        <select
-          className="update_input"
-          {...register(`timeSlots.${index}.day` as const)}
-        >
-          <option value="">Select Day</option>
-          <option value="Monday">Monday</option>
-          <option value="Tuesday">Tuesday</option>
-          <option value="Wednesday">Wednesday</option>
-          <option value="Thursday">Thursday</option>
-          <option value="Friday">Friday</option>
-          <option value="Saturday">Saturday</option>
-          <option value="Sunday">Sunday</option>
-        </select>
+        <input type="date" className="update_input" />
       </div>
       <div>
         <label htmlFor="" className="block">
-          Starting Time*
+          Ending Date*
         </label>
-        <input
-          type="time"
-          className="update_input"
-          {...register(`timeSlots.${index}.startingTime` as const)}
-        />
+        <input type="date" className="update_input" />
       </div>
 
       <div>
         <label htmlFor="" className="block">
-          Ending Time*
+          Degree*
         </label>
-        <input
-          type="time"
-          className="update_input"
-          {...register(`timeSlots.${index}.endingTime` as const)}
-        />
+        <input type="text" className="update_input" />
+      </div>
+      <div>
+        <label htmlFor="" className="block">
+          University
+        </label>
+        <input type="text" className="update_input" />
       </div>
 
       <div className="">
-        <div
-          className="border w-[2.6em] h-[2.6rem] flex items-center justify-center rounded-[50%] bg-red-600"
-          onClick={() => remove(index)}
-        >
+        <div className="border w-[2.6em] h-[2.6rem] flex items-center justify-center rounded-[50%] bg-red-600">
           <MdDelete className="text-white text-[1.5rem]" />
         </div>
       </div>

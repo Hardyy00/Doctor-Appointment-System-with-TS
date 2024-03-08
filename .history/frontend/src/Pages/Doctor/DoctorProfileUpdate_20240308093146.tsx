@@ -4,6 +4,7 @@ import {
   useForm,
   useFieldArray,
   SubmitHandler,
+  FieldArrayWithId,
   UseFormRegister,
   UseFieldArrayRemove,
 } from "react-hook-form";
@@ -152,7 +153,7 @@ const DoctorProfileUpdate = () => {
           />
         </div>
 
-        <div className="flex w-full items-center justify-between flex-wrap">
+        <div className="flex w-full items-center justify-between">
           <div className=" ">
             <label htmlFor="" className="block">
               Gender
@@ -192,7 +193,7 @@ const DoctorProfileUpdate = () => {
           </div>
 
           <div>
-            <label htmlFor="" className="block max-sm:mt-6">
+            <label htmlFor="" className="block">
               Ticket Price*
             </label>
             <input
@@ -212,6 +213,7 @@ const DoctorProfileUpdate = () => {
           {educationFields.map((item, index) => (
             <EducationDiv
               key={item.id}
+              education={item}
               register={register}
               remove={removeEducation}
               index={index}
@@ -244,6 +246,7 @@ const DoctorProfileUpdate = () => {
           {experienceFields.map((item, index) => (
             <ExperienceDiv
               key={item.id}
+              experience={item}
               index={index}
               register={register}
               remove={removeExperience}
@@ -292,7 +295,7 @@ const DoctorProfileUpdate = () => {
             Add Time Slot
           </button>
         </div>
-        <button className="btn w-[80%] self-center p-4 mt-8 font-[600] rounded-2xl">
+        <button className="btn w-[80%] self-center p-4 mt-4 font-[600] rounded-md">
           Update
         </button>
       </form>
@@ -301,10 +304,15 @@ const DoctorProfileUpdate = () => {
 };
 
 const EducationDiv: React.FC<{
+  education: FieldArrayWithId<
+    FormType,
+    "education" | "experience" | "timeSlots",
+    "id"
+  >;
   index: number;
   register: UseFormRegister<FormType>;
   remove: UseFieldArrayRemove;
-}> = ({ index, register, remove }) => {
+}> = ({ education, index, register, remove }) => {
   return (
     <div className="w-full grid grid-cols-2 gap-x-8 gap-y-4">
       <div>
@@ -351,7 +359,7 @@ const EducationDiv: React.FC<{
 
       <div className="">
         <div
-          className="border w-[2.6em] h-[2.6rem] flex items-center justify-center rounded-[50%] bg-red-600 hover:scale-110"
+          className="border w-[2.6em] h-[2.6rem] flex items-center justify-center rounded-[50%] bg-red-600"
           onClick={() => remove(index)}
         >
           <MdDelete className="text-white text-[1.5rem]" />
@@ -362,10 +370,15 @@ const EducationDiv: React.FC<{
 };
 
 const ExperienceDiv: React.FC<{
+  experience: FieldArrayWithId<
+    FormType,
+    "education" | "experience" | "timeSlots",
+    "id"
+  >;
   index: number;
   register: UseFormRegister<FormType>;
   remove: UseFieldArrayRemove;
-}> = ({ register, index, remove }) => {
+}> = ({ experience, register, index, remove }) => {
   return (
     <div className="w-full grid grid-cols-2 gap-x-8 gap-y-4">
       <div>
@@ -428,31 +441,23 @@ const TimeSlotDiv: React.FC<{
   remove: UseFieldArrayRemove;
 }> = ({ index, register, remove }) => {
   return (
-    <div className="w-full grid md:grid-cols-3 grid-cols-2 gap-x-8 gap-y-4">
+    <div className="w-full grid grid-cols-3 gap-x-8 gap-y-4">
       <div>
         <label htmlFor="" className="block">
           Day*
         </label>
-        <select
+        <input
+          type="date"
           className="update_input"
           {...register(`timeSlots.${index}.day` as const)}
-        >
-          <option value="">Select Day</option>
-          <option value="Monday">Monday</option>
-          <option value="Tuesday">Tuesday</option>
-          <option value="Wednesday">Wednesday</option>
-          <option value="Thursday">Thursday</option>
-          <option value="Friday">Friday</option>
-          <option value="Saturday">Saturday</option>
-          <option value="Sunday">Sunday</option>
-        </select>
+        />
       </div>
       <div>
         <label htmlFor="" className="block">
           Starting Time*
         </label>
         <input
-          type="time"
+          type="date"
           className="update_input"
           {...register(`timeSlots.${index}.startingTime` as const)}
         />
@@ -463,7 +468,7 @@ const TimeSlotDiv: React.FC<{
           Ending Time*
         </label>
         <input
-          type="time"
+          type="date"
           className="update_input"
           {...register(`timeSlots.${index}.endingTime` as const)}
         />

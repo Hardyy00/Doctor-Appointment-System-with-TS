@@ -61,7 +61,7 @@
   }
 
   .update_input {
-    @apply w-full p-4  border border-slate-400 rounded-lg focus:border-primaryColor focus:outline-none font-[600] tracking-wider text-[1.1rem] my-2 active:outline-none outline-none;
+    @apply w-full md:p-4 p-2 py-2 border border-slate-400 rounded-lg focus:border-primaryColor focus:outline-none font-[600] tracking-wider text-[1.1rem] my-2 active:outline-none outline-none;
   }
 
   .update_select {

@@ -16,9 +16,9 @@ const Appointments = () => {
   //   );
 
   return doctor.appointments && doctor.appointments.length > 0 ? (
-    <table className="text-center md:border-spacing-8 border-spacing-1 max-sm:border-spacing-y-4 text-textColor border-separate w-full ">
+    <table className="text-center md:border-spacing-8 border-spacing-1 max-sm:border-spacing-y-4   text-textColor border-separate w-full ">
       <thead>
-        <tr>
+        <tr className="">
           <th>Name</th>
           <th>Gender</th>
           <th>Payment</th>

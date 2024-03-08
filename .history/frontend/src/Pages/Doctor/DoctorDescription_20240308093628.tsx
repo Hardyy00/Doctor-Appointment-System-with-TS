@@ -21,7 +21,7 @@ export const doctor: Doctor = {
   totalPatients: 1500,
   hospital: "Mount Adora Hospital, Sylhet.",
   timeSlots: [
-    { day: "Monday", startingTime: "4pm", endingTime: "6pm" },
+    { day: "Sunday", startingTime: "4pm", endingTime: "6pm" },
     { day: "Sunday", startingTime: "4pm", endingTime: "6pm" },
   ],
   ticketPrice: 800,

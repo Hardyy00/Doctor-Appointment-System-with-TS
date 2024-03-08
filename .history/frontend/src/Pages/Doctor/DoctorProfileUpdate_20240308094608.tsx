@@ -97,7 +97,7 @@ const DoctorProfileUpdate = () => {
 
       <form
         action=""
-        className="w-full flex flex-col gap-4 mt-6"
+        className="w-full flex flex-col md:gap-4 mt-6"
         onSubmit={handleSubmit(submitForm)}
       >
         <div className="input-row">
@@ -152,7 +152,7 @@ const DoctorProfileUpdate = () => {
           />
         </div>
 
-        <div className="flex w-full items-center justify-between flex-wrap">
+        <div className="flex w-full items-center justify-between">
           <div className=" ">
             <label htmlFor="" className="block">
               Gender
@@ -192,7 +192,7 @@ const DoctorProfileUpdate = () => {
           </div>
 
           <div>
-            <label htmlFor="" className="block max-sm:mt-6">
+            <label htmlFor="" className="block">
               Ticket Price*
             </label>
             <input
@@ -292,7 +292,7 @@ const DoctorProfileUpdate = () => {
             Add Time Slot
           </button>
         </div>
-        <button className="btn w-[80%] self-center p-4 mt-8 font-[600] rounded-2xl">
+        <button className="btn w-[80%] self-center p-4 mt-4 font-[600] rounded-md">
           Update
         </button>
       </form>
@@ -351,7 +351,7 @@ const EducationDiv: React.FC<{
 
       <div className="">
         <div
-          className="border w-[2.6em] h-[2.6rem] flex items-center justify-center rounded-[50%] bg-red-600 hover:scale-110"
+          className="border w-[2.6em] h-[2.6rem] flex items-center justify-center rounded-[50%] bg-red-600"
           onClick={() => remove(index)}
         >
           <MdDelete className="text-white text-[1.5rem]" />
@@ -428,7 +428,7 @@ const TimeSlotDiv: React.FC<{
   remove: UseFieldArrayRemove;
 }> = ({ index, register, remove }) => {
   return (
-    <div className="w-full grid md:grid-cols-3 grid-cols-2 gap-x-8 gap-y-4">
+    <div className="w-full grid grid-cols-3 gap-x-8 gap-y-4">
       <div>
         <label htmlFor="" className="block">
           Day*

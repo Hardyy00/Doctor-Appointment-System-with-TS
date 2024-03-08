@@ -16,9 +16,9 @@ const Appointments = () => {
   //   );
 
   return doctor.appointments && doctor.appointments.length > 0 ? (
-    <table className="text-center md:border-spacing-8 border-spacing-1 max-sm:border-spacing-y-4 text-textColor border-separate w-full ">
+    <table className="text-center md:border-spacing-8 border-spacing-1   text-textColor border-separate w-full">
       <thead>
-        <tr>
+        <tr className="">
           <th>Name</th>
           <th>Gender</th>
           <th>Payment</th>
@@ -40,7 +40,7 @@ const Appointments = () => {
 
 const AppointmentRow: React.FC<{ appoint: Appointment }> = ({ appoint }) => {
   return (
-    <tr className="font-[500] text-purple-500 border">
+    <tr className="font-[500] text-purple-500 border mt-4">
       <td className="border p-[0.5rem] rounded-lg bg-green-500 text-white">
         {appoint.user?.name}
       </td>

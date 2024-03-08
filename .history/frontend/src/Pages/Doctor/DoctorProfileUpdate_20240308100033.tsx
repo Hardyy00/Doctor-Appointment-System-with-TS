@@ -351,7 +351,7 @@ const EducationDiv: React.FC<{
 
       <div className="">
         <div
-          className="border w-[2.6em] h-[2.6rem] flex items-center justify-center rounded-[50%] bg-red-600 hover:scale-110"
+          className="border w-[2.6em] h-[2.6rem] flex items-center justify-center rounded-[50%] bg-red-600"
           onClick={() => remove(index)}
         >
           <MdDelete className="text-white text-[1.5rem]" />
