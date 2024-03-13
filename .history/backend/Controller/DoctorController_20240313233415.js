@@ -28,27 +28,18 @@ exports.create = async (req, res) => {
   }
 };
 
-exports.login = async (req, res) => {
-  const { email, password } = req.body;
+exports.login = (req,res)=>{
+  const {email, password} = req.body;
 
-  try {
-    const doctor = await Doctor.findOne({ email });
+  try{
 
-    if (!doctor) {
-      return res.status(402).json({ message: "No Such Account was Found" });
-    }
+      const doctor = 
 
-    const comp = await bcrypt.compare(password, doctor.email);
+  } catch(err){
 
-    if (comp) {
-      res.status(200).json({ user: doctor });
-    } else {
-      res.status(400).json({ message: "Wrong Password" });
-    }
-  } catch (err) {
-    res.status(500).json({ message: err.message });
+    res.status(500).json({message : err.message});
   }
-};
+}
 
 exports.createAppointment = async (req, res) => {
   const { ticketPrice, user, doctor, appointmentDate } = req.body;

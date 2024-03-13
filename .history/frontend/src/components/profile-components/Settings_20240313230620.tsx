@@ -30,8 +30,6 @@ const Settings: React.FC = () => {
 
   const submitHandler = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
-    console.log("submitted");
     setIsSending(true);
 
     const formData = new FormData(event.target as HTMLFormElement);
@@ -105,7 +103,7 @@ const Settings: React.FC = () => {
             type="text"
             className="login_input"
             placeholder="Blood Group"
-            name="bloodType"
+            name="bloodGroup"
             defaultValue={user?.bloodType ?? ""}
           />
         </div>
@@ -134,20 +132,18 @@ const Settings: React.FC = () => {
           </div>
 
           <div>
-            <div
+            <button
               className="p-[1rem] bg-primaryColor/20 rounded-lg text-primaryColor font-[600]"
               onClick={() => imageRef.current?.click()}
             >
               Upload photo
-            </div>
+            </button>
 
             <input
               type="file"
               className="hidden"
               onChange={(event) =>
-                setImage(
-                  URL.createObjectURL(event.target?.files?.[0] as File | Blob)
-                )
+                setImage(URL.createObjectURL(event.target?.files?.[0] as const))
               }
               ref={imageRef}
             />

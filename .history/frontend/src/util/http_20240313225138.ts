@@ -1,4 +1,4 @@
-import { User } from "../assets/data/doctors";
+import { Gender, User } from "../assets/data/doctors";
 
 type DoctorPartial = {
   _id: string;
@@ -78,9 +78,9 @@ export async function login(userData: {
 
 export async function updateUser(userData: User): Promise<{ user: User }> {
   const response = await fetch(
-    import.meta.env.VITE_BASE_URI + `/${userData.role}/update`,
+    import.meta.env.VITE_BASE_URI + `/${userData.role}/`,
     {
-      method: "PATCH",
+      method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(userData),
     }
@@ -91,8 +91,6 @@ export async function updateUser(userData: User): Promise<{ user: User }> {
   }
 
   const resData: { user: User } = await response.json();
-
-  console.log(resData);
 
   return resData;
 }

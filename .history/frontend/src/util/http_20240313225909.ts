@@ -78,7 +78,7 @@ export async function login(userData: {
 
 export async function updateUser(userData: User): Promise<{ user: User }> {
   const response = await fetch(
-    import.meta.env.VITE_BASE_URI + `/${userData.role}/update`,
+    import.meta.env.VITE_BASE_URI + `/${userData.role}/`,
     {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
@@ -91,8 +91,6 @@ export async function updateUser(userData: User): Promise<{ user: User }> {
   }
 
   const resData: { user: User } = await response.json();
-
-  console.log(resData);
 
   return resData;
 }

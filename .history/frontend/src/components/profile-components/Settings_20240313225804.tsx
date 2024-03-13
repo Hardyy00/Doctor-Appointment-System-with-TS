@@ -4,24 +4,19 @@ import { useDispatchTyped, useSelectorTyped } from "../../hooks/hooks";
 import { useMutation } from "@tanstack/react-query";
 import { updateUser } from "../../util/http";
 import { userActions } from "../../store/UserSlice";
-import { ClipLoader } from "react-spinners";
 
 const Settings: React.FC = () => {
   const dispatch = useDispatchTyped();
-
-  const [isSending, setIsSending] = useState<boolean>(false);
 
   const { mutate } = useMutation({
     mutationFn: updateUser,
 
     onSuccess: (data) => {
       dispatch(userActions.update(data));
-      setIsSending(false);
     },
 
     onError: (err) => {
       console.log(err);
-      setIsSending(false);
     },
   });
   const user: User | null | undefined = useSelectorTyped((state) => state.user);
@@ -30,9 +25,6 @@ const Settings: React.FC = () => {
 
   const submitHandler = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
-    console.log("submitted");
-    setIsSending(true);
 
     const formData = new FormData(event.target as HTMLFormElement);
 
@@ -57,8 +49,7 @@ const Settings: React.FC = () => {
       const resData = await response.json();
 
       formData.append("image", resData.url);
-      formData.append("_id", user?._id ?? "");
-      formData.append("role", user?.role ?? "");
+      formData.append("_id", user?._id);
       const obj = Object.fromEntries(formData);
 
       mutate(obj);
@@ -105,7 +96,7 @@ const Settings: React.FC = () => {
             type="text"
             className="login_input"
             placeholder="Blood Group"
-            name="bloodType"
+            name="bloodGroup"
             defaultValue={user?.bloodType ?? ""}
           />
         </div>
@@ -134,20 +125,18 @@ const Settings: React.FC = () => {
           </div>
 
           <div>
-            <div
+            <button
               className="p-[1rem] bg-primaryColor/20 rounded-lg text-primaryColor font-[600]"
               onClick={() => imageRef.current?.click()}
             >
               Upload photo
-            </div>
+            </button>
 
             <input
               type="file"
               className="hidden"
               onChange={(event) =>
-                setImage(
-                  URL.createObjectURL(event.target?.files?.[0] as File | Blob)
-                )
+                setImage(URL.createObjectURL(event.target?.files?.[0]!))
               }
               ref={imageRef}
             />
@@ -155,8 +144,7 @@ const Settings: React.FC = () => {
         </div>
 
         <button className="btn p-[1rem] rounded-md font-[600] text-[1.1rem] w-[60%] self-center">
-          {isSending && <ClipLoader size={19} color="white" />}
-          {!isSending && "Update"}
+          Update
         </button>
       </form>
     </div>

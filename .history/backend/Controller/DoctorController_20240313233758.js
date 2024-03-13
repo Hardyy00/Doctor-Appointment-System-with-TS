@@ -43,7 +43,7 @@ exports.login = async (req, res) => {
     if (comp) {
       res.status(200).json({ user: doctor });
     } else {
-      res.status(400).json({ message: "Wrong Password" });
+      res.status(402).json({ message: "Wrong Password" });
     }
   } catch (err) {
     res.status(500).json({ message: err.message });

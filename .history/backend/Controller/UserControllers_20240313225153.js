@@ -85,6 +85,8 @@ exports.getReviews = async (req, res) => {
       .select("reviews")
       .populate("reviews");
 
+    console.log(doctor);
+
     res.status(200).json({ reviews: doctor.reviews });
   } catch (err) {
     res.status(400).json({ message: err.message });
@@ -122,6 +124,8 @@ exports.getDoctors = async (req, res) => {
     const foundDoctors = doctors.filter((item) =>
       item.name.toLowerCase().includes(name)
     );
+
+    console.log(foundDoctors);
 
     res.status(200).json({ doctors: foundDoctors });
   } catch (err) {

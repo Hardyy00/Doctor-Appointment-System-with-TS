@@ -85,6 +85,8 @@ exports.getReviews = async (req, res) => {
       .select("reviews")
       .populate("reviews");
 
+    console.log(doctor);
+
     res.status(200).json({ reviews: doctor.reviews });
   } catch (err) {
     res.status(400).json({ message: err.message });
@@ -123,6 +125,8 @@ exports.getDoctors = async (req, res) => {
       item.name.toLowerCase().includes(name)
     );
 
+    console.log(foundDoctors);
+
     res.status(200).json({ doctors: foundDoctors });
   } catch (err) {
     res.status(400).json({ message: err.message });
@@ -131,6 +135,8 @@ exports.getDoctors = async (req, res) => {
 
 exports.updateUser = async (req, res) => {
   const { _id } = req.body;
+
+  console.log(req.body);
 
   try {
     // console.log(_id);

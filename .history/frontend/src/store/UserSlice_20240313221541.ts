@@ -17,10 +17,6 @@ export const userSlice = createSlice({
       preState.user = action.payload.user;
     },
 
-    update(preState, action) {
-      preState.user = action.payload.user;
-    },
-
     logout(preState) {
       preState.user = null;
     },

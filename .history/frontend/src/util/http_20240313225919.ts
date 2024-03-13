@@ -92,7 +92,5 @@ export async function updateUser(userData: User): Promise<{ user: User }> {
 
   const resData: { user: User } = await response.json();
 
-  console.log(resData);
-
   return resData;
 }

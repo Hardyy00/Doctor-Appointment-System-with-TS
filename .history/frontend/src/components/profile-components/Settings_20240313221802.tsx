@@ -1,68 +1,16 @@
 import { useRef, useState } from "react";
 import { User } from "../../assets/data/doctors";
-import { useDispatchTyped, useSelectorTyped } from "../../hooks/hooks";
-import { useMutation } from "@tanstack/react-query";
-import { updateUser } from "../../util/http";
-import { userActions } from "../../store/UserSlice";
-import { ClipLoader } from "react-spinners";
+import { useSelectorTyped } from "../../hooks/hooks";
 
 const Settings: React.FC = () => {
-  const dispatch = useDispatchTyped();
-
-  const [isSending, setIsSending] = useState<boolean>(false);
-
-  const { mutate } = useMutation({
-    mutationFn: updateUser,
-
-    onSuccess: (data) => {
-      dispatch(userActions.update(data));
-      setIsSending(false);
-    },
-
-    onError: (err) => {
-      console.log(err);
-      setIsSending(false);
-    },
-  });
   const user: User | null | undefined = useSelectorTyped((state) => state.user);
   const imageRef = useRef<HTMLInputElement>(null);
-  const [image, setImage] = useState<string>(user?.image ?? "");
+  const [image, setImage] = useState<string>(user?.image!);
 
-  const submitHandler = async (event: React.FormEvent<HTMLFormElement>) => {
+  const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    console.log("submitted");
-    setIsSending(true);
-
-    const formData = new FormData(event.target as HTMLFormElement);
-
-    if (image !== user?.image) {
-      const form = new FormData();
-
-      const blob: File | Blob = await fetch(image).then((res) => res.blob());
-
-      form.append("file", blob);
-      form.append("upload_preset", "doctor-appointment-app");
-      form.append("cloud_name", import.meta.env.VITE_CLOUDINARY_NAME);
-
-      const response = await fetch(
-        "https://api.cloudinary.com/v1_1/dlfyo8jcv/image/upload",
-        { method: "POST", body: form }
-      );
-
-      if (!response.ok) {
-        throw new Error("Could not upload the image");
-      }
-
-      const resData = await response.json();
-
-      formData.append("image", resData.url);
-      formData.append("_id", user?._id ?? "");
-      formData.append("role", user?.role ?? "");
-      const obj = Object.fromEntries(formData);
-
-      mutate(obj);
-    }
+    const;
   };
   return (
     <div className="flex flex-col gap-[2rem]">
@@ -105,7 +53,7 @@ const Settings: React.FC = () => {
             type="text"
             className="login_input"
             placeholder="Blood Group"
-            name="bloodType"
+            name="bloodGroup"
             defaultValue={user?.bloodType ?? ""}
           />
         </div>
@@ -129,34 +77,33 @@ const Settings: React.FC = () => {
         <div className="flex items-center gap-[1rem]">
           <div className="w-[3.4rem] h-[3.4rem] bg-red-300 rounded-[50%] border-2 border-primaryColor overflow-clip">
             {image && (
-              <img src={image} alt="" className="object-cover w-full h-full" />
+              <img
+                src={URL.createObjectURL(image)}
+                alt=""
+                className="object-cover w-full h-full"
+              />
             )}
           </div>
 
           <div>
-            <div
+            <button
               className="p-[1rem] bg-primaryColor/20 rounded-lg text-primaryColor font-[600]"
               onClick={() => imageRef.current?.click()}
             >
               Upload photo
-            </div>
+            </button>
 
             <input
               type="file"
               className="hidden"
-              onChange={(event) =>
-                setImage(
-                  URL.createObjectURL(event.target?.files?.[0] as File | Blob)
-                )
-              }
+              onChange={(event) => setImage(event.target?.files?.[0])}
               ref={imageRef}
             />
           </div>
         </div>
 
         <button className="btn p-[1rem] rounded-md font-[600] text-[1.1rem] w-[60%] self-center">
-          {isSending && <ClipLoader size={19} color="white" />}
-          {!isSending && "Update"}
+          Update
         </button>
       </form>
     </div>

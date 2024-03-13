@@ -105,7 +105,7 @@ const Settings: React.FC = () => {
             type="text"
             className="login_input"
             placeholder="Blood Group"
-            name="bloodType"
+            name="bloodGroup"
             defaultValue={user?.bloodType ?? ""}
           />
         </div>

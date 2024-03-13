@@ -105,7 +105,7 @@ const Settings: React.FC = () => {
             type="text"
             className="login_input"
             placeholder="Blood Group"
-            name="bloodType"
+            name="bloodGroup"
             defaultValue={user?.bloodType ?? ""}
           />
         </div>
@@ -134,12 +134,12 @@ const Settings: React.FC = () => {
           </div>
 
           <div>
-            <div
+            <button
               className="p-[1rem] bg-primaryColor/20 rounded-lg text-primaryColor font-[600]"
               onClick={() => imageRef.current?.click()}
             >
               Upload photo
-            </div>
+            </button>
 
             <input
               type="file"

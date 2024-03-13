@@ -3,7 +3,6 @@ import Logo from "../../assets/images/logo.png";
 import { TiThMenuOutline } from "react-icons/ti";
 import { useRef } from "react";
 import { useDispatchTyped, useSelectorTyped } from "../../hooks/hooks";
-import { userActions } from "../../store/UserSlice";
 const navLinks = [
   {
     path: "/home",
@@ -108,10 +107,7 @@ const Header: React.FC = () => {
 
             {isUserPresent && (
               <Link to="#" className="">
-                <button
-                  className="btn"
-                  onClick={() => dispatch(userActions.logout())}
-                >
+                <button className="btn" onClick={() => disp}>
                   Logout
                 </button>
               </Link>
