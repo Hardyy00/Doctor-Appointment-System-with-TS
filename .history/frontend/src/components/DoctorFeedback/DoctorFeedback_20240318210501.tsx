@@ -1,50 +1,43 @@
-import { Review } from "../../assets/data/doctors";
+import { Doctor, Review } from "../../assets/data/doctors";
 import { useRef, useState } from "react";
 import Rating from "@mui/material/Rating";
 import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { getReviews } from "../../util/http";
-import { ClipLoader } from "react-spinners";
 
-const DoctorFeedback: React.FC = () => {
+const DoctorFeedback: React.FC<{ doctor: Doctor }> = ({ doctor }) => {
   const [open, setOpen] = useState<boolean>(false);
 
-  const { id } = useParams();
+  let { id } = useParams();
 
-  const { data, isLoading } = useQuery({
-    queryKey: ["doctor", "reviews", id],
-    queryFn: ({ signal }) => getReviews({ signal, id }),
-  });
-
-  const reviews: Review[] = data as Review[];
-
+  const {data, isLoading} = useQuery({
+    queryKey: ['doctor', 'reviews', id],
+    queryFn: ({signal})=> getReviews({signal,id});
+  })
   return (
     <div className="w-full">
-      {isLoading && <ClipLoader size={40} color="blue" />}
-      {!isLoading && (
-        <>
-          {" "}
-          <h2 className="font-[800] text-[1.3rem]">
-            Reviews ({reviews?.length})
-          </h2>
-          <div className="mt-[2rem] flex flex-col gap-4">
-            {reviews?.map((item) => (
-              <ReviewDiv key={item.id} review={item} />
-            ))}
-          </div>
-          {!open && (
-            <div className="w-full text-center mt-[2rem]">
-              <button
-                className="btn p-[1rem] px-[1.2rem]"
-                onClick={() => setOpen((pre) => !pre)}
-              >
-                Give Feedback
-              </button>
-            </div>
-          )}
-          {open && <GiveFeedback />}
-        </>
+      <h2 className="font-[800] text-[1.3rem]">
+        Reviews ({doctor.reviews?.length})
+      </h2>
+
+      <div className="mt-[2rem] flex flex-col gap-4">
+        {doctor.reviews?.map((item) => (
+          <ReviewDiv key={item.id} review={item} />
+        ))}
+      </div>
+
+      {!open && (
+        <div className="w-full text-center mt-[2rem]">
+          <button
+            className="btn p-[1rem] px-[1.2rem]"
+            onClick={() => setOpen((pre) => !pre)}
+          >
+            Give Feedback
+          </button>
+        </div>
       )}
+
+      {open && <GiveFeedback />}
     </div>
   );
 };
@@ -56,22 +49,20 @@ const ReviewDiv: React.FC<{ review: Review }> = ({ review }) => {
         <div className="flex items-center gap-4">
           <div className="h-[3rem] w-[3rem] rounded-[50%] overflow-clip">
             <img
-              src={review?.user?.image}
+              src={review.user.image}
               alt=""
               className="object-cover h-full rounded-[50%]"
             />
           </div>
           <div>
-            <h3 className="font-[800] text-primaryColor">
-              {review?.user?.name}
-            </h3>
-            <p className="text-[80%]">{review?.timeStamp}</p>
+            <h3 className="font-[800] text-primaryColor">{review.user.name}</h3>
+            <p className="text-[80%]">{review.timeStamp}</p>
           </div>
         </div>
-        <Rating name="read-only" value={review?.rating} readOnly />
+        <Rating name="read-only" value={review.rating} readOnly />
       </div>
       <div className="px-16">
-        <p className="text-[1.1rem] font-[500]">{review?.reviewText}</p>
+        <p className="text-[1.1rem] font-[500]">{review.reviewText}</p>
       </div>
     </div>
   );
@@ -82,6 +73,8 @@ const GiveFeedback: React.FC = () => {
   const feedbackRef = useRef<HTMLTextAreaElement>(null);
 
   const submitHandler = () => {
+    console.log(value);
+    console.log(feedbackRef.current?.value);
     setValue(0);
 
     if (feedbackRef.current) {

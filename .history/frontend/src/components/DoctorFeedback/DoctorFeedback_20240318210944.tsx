@@ -1,4 +1,4 @@
-import { Review } from "../../assets/data/doctors";
+import { Doctor, Review } from "../../assets/data/doctors";
 import { useRef, useState } from "react";
 import Rating from "@mui/material/Rating";
 import { useParams } from "react-router-dom";
@@ -16,8 +16,7 @@ const DoctorFeedback: React.FC = () => {
     queryFn: ({ signal }) => getReviews({ signal, id }),
   });
 
-  const reviews: Review[] = data as Review[];
-
+  const reviews: Review[] = data as Review;
   return (
     <div className="w-full">
       {isLoading && <ClipLoader size={40} color="blue" />}

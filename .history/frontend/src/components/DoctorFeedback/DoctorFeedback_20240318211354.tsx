@@ -18,6 +18,7 @@ const DoctorFeedback: React.FC = () => {
 
   const reviews: Review[] = data as Review[];
 
+  console.log(reviews);
   return (
     <div className="w-full">
       {isLoading && <ClipLoader size={40} color="blue" />}

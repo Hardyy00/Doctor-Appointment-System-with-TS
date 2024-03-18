@@ -82,9 +82,7 @@ exports.getReviews = async (req, res) => {
   try {
     const reviews = await Review.find({
       doctor: new mongoose.Types.ObjectId(id),
-    })
-      .populate("user")
-      .select("_id user reviewText rating createdAt");
+    }).populate('user').select("_id user reviewText rating createdAt").;
 
     res.status(200).json({ reviews });
   } catch (err) {

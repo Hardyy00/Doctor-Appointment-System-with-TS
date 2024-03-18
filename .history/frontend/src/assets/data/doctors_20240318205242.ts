@@ -82,6 +82,7 @@ export interface Doctor {
   bio?: string;
   about?: string;
   timeSlots?: TimeSlot[];
+  reviews?: Review[];
   isApproved?: string;
   appointments?: Appointment[];
 }

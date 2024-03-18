@@ -14,6 +14,7 @@ const MyBookings: React.FC = () => {
     queryFn: ({ signal }) => getAppointments({ signal, id: userId, role }),
   });
 
+  console.log(appointments);
   return (
     <div className="flex flex-col gap-6 w-full">
       <h1 className="font-[800] text-[1.4rem]">My Appointments</h1>

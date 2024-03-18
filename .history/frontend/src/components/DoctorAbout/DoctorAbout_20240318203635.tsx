@@ -64,10 +64,10 @@ const EducationDiv: React.FC<{ education: Education }> = ({ education }) => {
 const ExperienceDiv: React.FC<{ experience: Experience }> = ({
   experience,
 }) => {
-  const startData = formatter(new Date(experience?.startingDate))
+  const startData = formatter(new Date(experience.startingDate))
     .split("-")
     .join(" ");
-  const endingDate = formatter(new Date(experience?.endingDate))
+  const endingDate = formatter(new Date(experience.endingDate))
     .split("-")
     .join(" ");
   return (
@@ -78,10 +78,10 @@ const ExperienceDiv: React.FC<{ experience: Experience }> = ({
 
       <div>
         <h2 className="font-[800] md:text-[1.1rem] text-[0.9rem]">
-          {experience?.role}
+          {experience.role}
         </h2>
         <p className="font-[600] max-sm:mt-[0.5rem] max-sm:text-[0.8rem]">
-          {experience?.place}
+          {experience.place}
         </p>
       </div>
     </div>

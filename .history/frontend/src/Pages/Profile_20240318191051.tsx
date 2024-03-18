@@ -2,13 +2,12 @@ import { User } from "../assets/data/doctors";
 import { useState } from "react";
 import Settings from "../components/profile-components/Settings";
 import MyBookings from "../components/profile-components/MyBookings";
-import { useDispatchTyped, useSelectorTyped } from "../hooks/hooks";
-import { userActions } from "../store/UserSlice";
+import { useSelectorTyped } from "../hooks/hooks";
 
 const Profile: React.FC = () => {
   const [isBook, setIsBook] = useState<boolean>(true);
 
-  const dispatch = useDispatchTyped();
+  // cosnt
   const user: User = useSelectorTyped((state) => state.user as User);
   return (
     <section className=" lg:px-[6rem] pb-[5rem] pt-[2rem] flex justify-center text-textColor max-sm:px-3">
@@ -33,7 +32,7 @@ const Profile: React.FC = () => {
           <div className="flex flex-col w-full items-center gap-4">
             <button
               className="lg:w-[90%] w-[60%] bg-textColor py-[1rem] rounded-md text-white font-[500] hover:bg-black"
-              onClick={() => dispatch(userActions.logout())}
+              onClick={() => dispact}
             >
               Logout
             </button>

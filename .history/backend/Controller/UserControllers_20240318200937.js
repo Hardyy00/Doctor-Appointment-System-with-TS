@@ -70,6 +70,8 @@ exports.createReview = async (req, res) => {
 
     await review.save();
 
+    await doctor.updateOne({ $push: { reviews: review._id } });
+
     res.status(200).json({ message: "Review Added successfully" });
   } catch (err) {
     res.status(400).json({ message: err.message });
@@ -80,13 +82,11 @@ exports.getReviews = async (req, res) => {
   const { id } = req.params;
 
   try {
-    const reviews = await Review.find({
-      doctor: new mongoose.Types.ObjectId(id),
-    })
-      .populate("user")
-      .select("_id user reviewText rating createdAt");
+    const doctor = await Doctor.findById(id)
+      .select("reviews")
+      .populate("reviews");
 
-    res.status(200).json({ reviews });
+    res.status(200).json({ reviews: doctor.reviews });
   } catch (err) {
     res.status(400).json({ message: err.message });
   }
@@ -94,6 +94,8 @@ exports.getReviews = async (req, res) => {
 
 exports.getDoctorInformation = async (req, res) => {
   const { id } = req.params;
+
+  console.log(id);
 
   try {
     const doctor = await Doctor.findById(id).select("-reviews");
@@ -151,7 +153,16 @@ exports.getAppointments = async (req, res) => {
       user: new mongoose.Types.ObjectId(id),
     }).populate("doctor");
 
-    res.status(200).json({ appointments: booking });
+    const arr = booking.map((item) => {
+      const { name, image, hospital, specialization, averageRating } =
+        item.doctor._doc;
+
+      item.doctor = { name, image, hospital, specialization, averageRating };
+
+      return item;
+    });
+
+    res.status(200).json({ appointments: arr });
   } catch (err) {
     res.status(500).json({ message: err.message });
   }

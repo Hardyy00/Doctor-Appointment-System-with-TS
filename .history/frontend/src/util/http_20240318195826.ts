@@ -1,4 +1,4 @@
-import { Appointment, Doctor, Review, User } from "../assets/data/doctors";
+import { Appointment, Doctor, User } from "../assets/data/doctors";
 
 type DoctorPartial = {
   _id: string;
@@ -128,41 +128,10 @@ export async function getUser({
   role,
 }: {
   signal: AbortSignal;
-  id: string | undefined;
+  id: string;
   role: string | undefined;
-}): Promise<Doctor | User> {
+}) {
   const response = await fetch(
-    import.meta.env.VITE_BASE_URI + `/${role ?? "doctor"}/${id}`,
-    { signal }
+    import.meta.env.VITE_BASE_URI + `/${role ?? "doctor"}/getUser`
   );
-
-  if (!response.ok) {
-    throw new Error("Something went wrong on getting the user");
-  }
-
-  const resData = await response.json();
-
-  return resData.doctor;
-}
-
-export async function getReviews({
-  signal,
-  id,
-}: {
-  signal: AbortSignal;
-  id: string | undefined;
-}): Promise<Review> {
-  console.log("called");
-  const response = await fetch(
-    import.meta.env.VITE_BASE_URI + `/patient/${id}/review`,
-    { signal }
-  );
-
-  if (!response.ok) {
-    throw new Error("Something went wrong on getting reviews");
-  }
-
-  const resData = await response.json();
-
-  return resData.reviews;
 }

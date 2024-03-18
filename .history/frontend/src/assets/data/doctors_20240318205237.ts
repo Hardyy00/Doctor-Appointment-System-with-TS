@@ -26,6 +26,7 @@ export type Review = {
   _id?: string;
   id?: string;
   user?: User;
+  doctor?:
   reviewText?: string;
   rating?: number;
   timeStamp?: string;
@@ -82,6 +83,7 @@ export interface Doctor {
   bio?: string;
   about?: string;
   timeSlots?: TimeSlot[];
+  reviews?: Review[];
   isApproved?: string;
   appointments?: Appointment[];
 }

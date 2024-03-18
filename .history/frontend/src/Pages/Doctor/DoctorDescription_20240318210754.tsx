@@ -5,7 +5,7 @@ import BookDoctor from "../../components/BookDoctor/BookDoctor";
 import DoctorAbout from "../../components/DoctorAbout/DoctorAbout";
 import DoctorFeedback from "../../components/DoctorFeedback/DoctorFeedback";
 import Rating from "@mui/material/Rating";
-import { useQuery } from "@tanstack/react-query";
+import { , useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 import { getUser } from "../../util/http";
 import { useSelectorTyped } from "../../hooks/hooks";
@@ -26,6 +26,8 @@ const DoctorDescription: React.FC = () => {
   });
 
   const doctor: Doctor = data as Doctor;
+
+  console.log(doctor);
 
   return (
     <section className="flex w-full max-md:flex-col md:px-[2rem] py-[2rem]">
@@ -81,7 +83,7 @@ const DoctorDescription: React.FC = () => {
             {/* about and feedback section */}
             <div className="w-full py-8">
               {isAbout === "About" && <DoctorAbout doctor={doctor} />}
-              {isAbout === "Feedback" && <DoctorFeedback />}
+              {isAbout === "Feedback" && <DoctorFeedback doctor={doctor} />}
             </div>
           </div>
           <div className="md:p-7 max-md:m-auto">

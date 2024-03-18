@@ -27,6 +27,8 @@ const DoctorDescription: React.FC = () => {
 
   const doctor: Doctor = data as Doctor;
 
+  console.log(doctor);
+
   return (
     <section className="flex w-full max-md:flex-col md:px-[2rem] py-[2rem]">
       {isLoading && <ClipLoader size={28} color="blue" />}

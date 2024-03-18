@@ -8,7 +8,7 @@ import { userActions } from "../store/UserSlice";
 const Profile: React.FC = () => {
   const [isBook, setIsBook] = useState<boolean>(true);
 
-  const dispatch = useDispatchTyped();
+  const dispat = useDispatchTyped();
   const user: User = useSelectorTyped((state) => state.user as User);
   return (
     <section className=" lg:px-[6rem] pb-[5rem] pt-[2rem] flex justify-center text-textColor max-sm:px-3">

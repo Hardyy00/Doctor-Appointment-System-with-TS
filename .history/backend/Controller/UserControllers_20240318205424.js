@@ -80,13 +80,9 @@ exports.getReviews = async (req, res) => {
   const { id } = req.params;
 
   try {
-    const reviews = await Review.find({
-      doctor: new mongoose.Types.ObjectId(id),
-    })
-      .populate("user")
-      .select("_id user reviewText rating createdAt");
+    const reviews = Review;
 
-    res.status(200).json({ reviews });
+    res.status(200).json({ reviews: doctor.reviews });
   } catch (err) {
     res.status(400).json({ message: err.message });
   }
@@ -97,6 +93,7 @@ exports.getDoctorInformation = async (req, res) => {
 
   try {
     const doctor = await Doctor.findById(id).select("-reviews");
+    console.log(doctor);
 
     const { password, createdAt, updatedAt, ...restDoctor } = doctor._doc; // leave out the password, and rest unnecessary fields
 
@@ -150,6 +147,8 @@ exports.getAppointments = async (req, res) => {
     let booking = await Booking.find({
       user: new mongoose.Types.ObjectId(id),
     }).populate("doctor");
+
+    console.log(booking);
 
     res.status(200).json({ appointments: booking });
   } catch (err) {

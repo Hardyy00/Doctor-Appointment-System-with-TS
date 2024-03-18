@@ -152,7 +152,6 @@ export async function getReviews({
   signal: AbortSignal;
   id: string | undefined;
 }): Promise<Review> {
-  console.log("called");
   const response = await fetch(
     import.meta.env.VITE_BASE_URI + `/patient/${id}/review`,
     { signal }
@@ -164,5 +163,5 @@ export async function getReviews({
 
   const resData = await response.json();
 
-  return resData.reviews;
+  return resData;
 }

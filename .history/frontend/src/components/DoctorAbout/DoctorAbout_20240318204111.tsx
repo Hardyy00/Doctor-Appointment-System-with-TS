@@ -41,6 +41,7 @@ const DoctorAbout: React.FC<{ doctor: Doctor }> = ({ doctor }) => {
 };
 
 const EducationDiv: React.FC<{ education: Education }> = ({ education }) => {
+  console.log(education);
   const startData = formatter(new Date(education?.startingDate))
     .split("-")
     .join(" ");

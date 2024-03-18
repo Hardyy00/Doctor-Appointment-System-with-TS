@@ -80,11 +80,11 @@ exports.getReviews = async (req, res) => {
   const { id } = req.params;
 
   try {
-    const reviews = await Review.find({
+    const reviews = Review.find({
       doctor: new mongoose.Types.ObjectId(id),
-    })
-      .populate("user")
-      .select("_id user reviewText rating createdAt");
+    }).select("_id user reviewText rating createdAt");
+
+    console.log(reviews);
 
     res.status(200).json({ reviews });
   } catch (err) {
