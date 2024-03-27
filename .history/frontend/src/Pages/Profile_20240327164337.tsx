@@ -6,7 +6,7 @@ import MyBookings from "../components/profile-components/MyBookings";
 import { useDispatchTyped, useSelectorTyped } from "../hooks/hooks";
 import { userActions } from "../store/UserSlice";
 import { useCookies } from "react-cookie";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer, toas } from "react-toastify";
 
 const Profile: React.FC = () => {
   const dispatch = useDispatchTyped();
@@ -17,9 +17,12 @@ const Profile: React.FC = () => {
     (state) => state.user as User | undefined
   );
 
+  useEffect(() => {
+    t;
+  }, []);
+
   return (
     <section className=" lg:px-[6rem] pb-[5rem] pt-[2rem] flex justify-center text-textColor max-sm:px-3">
-      <ToastContainer />
       <div className="flex max-md:flex-col w-[100%] lg:p-[1rem] justify-around max-md:justify-center max-md:item-center max-md:gap-[6rem]">
         <div className="flex flex-col w-[30%] max-md:w-full h-[26rem]  items-center justify-between">
           <div className="flex flex-col items-center justify-between">

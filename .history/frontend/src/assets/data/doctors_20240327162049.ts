@@ -1,3 +1,7 @@
+import doctorImg01 from "../images/doctor-img01.jpg";
+import doctorImg02 from "../images/doctor-img02.png";
+import doctorImg03 from "../images/doctor-img03.png";
+
 export type TimeSlot = {
   day: string;
   startingTime: string;
@@ -82,3 +86,5 @@ export interface Doctor {
   isApproved?: string;
   appointments?: Appointment[];
 }
+
+export default doctors;

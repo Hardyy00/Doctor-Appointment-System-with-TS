@@ -11,10 +11,17 @@ const Appointments = () => {
       role: state.user?.role,
     };
   });
-  const { data: appointments, isLoading } = useQuery({
+  const {
+    data: appointments,
+    isLoading,
+    isError,
+    error,
+  } = useQuery({
     queryKey: ["doctor", doctorId],
     queryFn: ({ signal }) => getAppointments({ signal, id: doctorId, role }),
   });
+
+  console.log(appointments);
 
   return (
     <>

@@ -5,8 +5,7 @@ import { useDispatchTyped } from "../hooks/hooks";
 import { userActions } from "../store/UserSlice";
 import { ClipLoader } from "react-spinners";
 import { FormEvent } from "react";
-import { ToastContainer, toast } from "react-toastify";
-import { AxiosError } from "axios";
+import { toast } from "react-toastify";
 
 const Login: React.FC = () => {
   const navigate = useNavigate();
@@ -23,9 +22,8 @@ const Login: React.FC = () => {
       }
     },
 
-    onError: (err: AxiosError<{ message: string }>) => {
-      const ret: { message: string } | undefined = err.response?.data;
-      toast.error(ret?.message, {
+    onError: (err) => {
+      toast.error("Failed to login in", {
         theme: "colored",
       });
     },
@@ -45,11 +43,9 @@ const Login: React.FC = () => {
   };
 
   return (
-    <>
-      <ToastContainer />
-      <div className="w-full h-full flex items-center justify-center md:px-[14rem] md:py-[4rem] py-[6rem]">
-        {/* prettier-ignore */}
-        <div className="flex flex-col items-start h-[26em] md:w-[90%] lg:w-[50%] w-[80%] justify-around p-[1rem] border-gray-300 border-[1px] rounded-xl">
+    <div className="w-full h-full flex items-center justify-center md:px-[14rem] md:py-[4rem] py-[6rem]">
+      {/* prettier-ignore */}
+      <div className="flex flex-col items-start h-[26em] md:w-[90%] lg:w-[50%] w-[80%] justify-around p-[1rem] border-gray-300 border-[1px] rounded-xl">
         <h1 className="font-[800] text-[1.5rem]">
           Login <span className="text-primaryColor">To continue!</span>
         </h1>
@@ -93,8 +89,7 @@ const Login: React.FC = () => {
           </Link>
         </p>
       </div>
-      </div>
-    </>
+    </div>
   );
 };
 

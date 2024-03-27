@@ -8,16 +8,8 @@ import { Doctor } from "../assets/data/doctors.ts";
 import DoctorCard from "../components/DoctorCard/DoctorCard.tsx";
 import QuestionPanel from "../components/QuestionPanel/QuestionPanel.tsx";
 import Carousel from "../components/Carousel/Carousel.tsx";
-import { useQuery } from "@tanstack/react-query";
-import { fetchDoctors } from "../util/http.ts";
-import { ClipLoader } from "react-spinners";
 
 const Home: React.FC = () => {
-  const { data: DoctorData, isLoading } = useQuery({
-    queryKey: ["doctors", 3],
-    queryFn: ({ signal }) => fetchDoctors({ signal, searchTerm: "3" }),
-  });
-
   return (
     <section className="p-0 w-full">
       <Hero />
@@ -112,11 +104,9 @@ const Home: React.FC = () => {
         </p>
 
         <div className="flex max-md:flex-col mt-[5rem] w-full justify-around max-md:items-center max-md:gap-[3rem]">
-          {isLoading && <ClipLoader size={26} color="blue" />}
-          {!isLoading &&
-            DoctorData!.map((item: Doctor) => (
-              <DoctorCard key={item.id} doctor={item} />
-            ))}
+          {DoctorData.map((item: Doctor) => (
+            <DoctorCard key={item.id} doctor={item} />
+          ))}
         </div>
       </section>
 

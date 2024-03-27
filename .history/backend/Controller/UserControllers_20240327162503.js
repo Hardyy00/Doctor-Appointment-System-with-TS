@@ -168,11 +168,8 @@ exports.getDoctors = async (req, res) => {
       "name image hospital specialization averageRating"
     );
 
-    if (!isNaN(Number(name))) {
-      const sliced = doctors.slice(0, name);
 
-      return res.status(200).json({ doctors: sliced });
-    }
+    if()
 
     if (name === "*") {
       return res.status(200).json({ doctors: foundDoctors });

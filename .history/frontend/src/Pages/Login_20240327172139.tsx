@@ -23,9 +23,9 @@ const Login: React.FC = () => {
       }
     },
 
-    onError: (err: AxiosError<{ message: string }>) => {
-      const ret: { message: string } | undefined = err.response?.data;
-      toast.error(ret?.message, {
+    onError: (err: AxiosError) => {
+      const d = err.response?.data;
+      toast.error(err.response?.data.message as string, {
         theme: "colored",
       });
     },

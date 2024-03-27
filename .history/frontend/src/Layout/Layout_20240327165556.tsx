@@ -20,8 +20,8 @@ const Layout: React.FC = () => {
   );
 
   useEffect(() => {
-    console.log("use effect called");
     if (user) {
+      navigate("/");
       return;
     }
 

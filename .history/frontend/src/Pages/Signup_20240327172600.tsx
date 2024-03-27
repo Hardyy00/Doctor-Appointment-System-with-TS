@@ -9,7 +9,7 @@ import { ClipLoader } from "react-spinners";
 import { useDispatchTyped } from "../hooks/hooks";
 import { userActions } from "../store/UserSlice";
 import { AxiosError } from "axios";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 
 const Signup: React.FC = () => {
   const [isSending, setIsSending] = useState<boolean>(false);
@@ -80,7 +80,6 @@ const Signup: React.FC = () => {
   };
   return (
     <>
-      <ToastContainer />
       <div className="flex max-sm:flex-col mx-auto w-full md:max-w-[70%] items-center  md:h-[34rem] mt-10 mb-10 ">
         <div className="w-[80%] h-full">
           <Lottie animationData={fig} loop={false} className="h-full w-full" />

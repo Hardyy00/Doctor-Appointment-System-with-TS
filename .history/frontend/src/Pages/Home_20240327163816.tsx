@@ -18,6 +18,7 @@ const Home: React.FC = () => {
     queryFn: ({ signal }) => fetchDoctors({ signal, searchTerm: "3" }),
   });
 
+  console.log(DoctorData);
   return (
     <section className="p-0 w-full">
       <Hero />

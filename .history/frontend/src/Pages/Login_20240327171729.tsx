@@ -6,7 +6,6 @@ import { userActions } from "../store/UserSlice";
 import { ClipLoader } from "react-spinners";
 import { FormEvent } from "react";
 import { ToastContainer, toast } from "react-toastify";
-import { AxiosError } from "axios";
 
 const Login: React.FC = () => {
   const navigate = useNavigate();
@@ -23,9 +22,9 @@ const Login: React.FC = () => {
       }
     },
 
-    onError: (err: AxiosError<{ message: string }>) => {
-      const ret: { message: string } | undefined = err.response?.data;
-      toast.error(ret?.message, {
+    onError: (err) => {
+      console.log(err);
+      toast.error(err.message, {
         theme: "colored",
       });
     },

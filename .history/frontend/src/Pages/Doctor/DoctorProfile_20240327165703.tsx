@@ -51,6 +51,7 @@ const DoctorProfile: React.FC = () => {
                 onClick={() => {
                   removeCookies("jwt");
                   dispatch(userActions.logout());
+                  na;
                 }}
               >
                 Logout

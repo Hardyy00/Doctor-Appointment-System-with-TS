@@ -82,3 +82,5 @@ export interface Doctor {
   isApproved?: string;
   appointments?: Appointment[];
 }
+
+export default doctors;

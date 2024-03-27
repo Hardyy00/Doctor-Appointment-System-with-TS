@@ -17,6 +17,13 @@ const Profile: React.FC = () => {
     (state) => state.user as User | undefined
   );
 
+  useEffect(() => {
+    if (user?.name) {
+      console.log(user?.name);
+      toast.success(`Welcome ${user?.name}`, { theme: "colored" });
+    }
+  }, [user?.name]);
+
   return (
     <section className=" lg:px-[6rem] pb-[5rem] pt-[2rem] flex justify-center text-textColor max-sm:px-3">
       <ToastContainer />

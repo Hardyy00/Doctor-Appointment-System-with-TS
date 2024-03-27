@@ -20,9 +20,8 @@ const DoctorProfile: React.FC = () => {
   );
 
   useEffect(() => {
-    toast.success(`Welcome Dr. ${doctorName}`, { theme: "colored" });
+    toast.success(`Welcome ${doctorName}`);
   }, [doctorName]);
-
   return (
     <section className="w-full py-[3rem] text-textColor">
       <ToastContainer />

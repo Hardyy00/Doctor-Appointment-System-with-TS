@@ -16,6 +16,17 @@ const Profile: React.FC = () => {
   const user: User | undefined = useSelectorTyped(
     (state) => state.user as User | undefined
   );
+  const [userName, setUserName] = useState<string | undefined>(user?.name);
+
+  if (userName !== user?.name) {
+    setUserName(user?.name);
+  }
+
+  useEffect(() => {
+    if (userName) {
+      toast.success(`Welcome ${userName}`, { theme: "colored" });
+    }
+  }, [userName]);
 
   return (
     <section className=" lg:px-[6rem] pb-[5rem] pt-[2rem] flex justify-center text-textColor max-sm:px-3">

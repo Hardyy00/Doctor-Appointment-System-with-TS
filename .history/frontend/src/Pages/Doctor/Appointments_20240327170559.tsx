@@ -11,13 +11,21 @@ const Appointments = () => {
       role: state.user?.role,
     };
   });
-  const { data: appointments, isLoading } = useQuery({
+  const {
+    data: appointments,
+    isLoading,
+    isError,
+    error,
+  } = useQuery({
     queryKey: ["doctor", doctorId],
     queryFn: ({ signal }) => getAppointments({ signal, id: doctorId, role }),
   });
 
+  console.log(appointments);
+
   return (
     <>
+      {isLoading && <ClipLoader size={150} color={"#123abc"} />}
       {!isLoading && appointments && appointments.length > 0 ? (
         <table className="text-center md:border-spacing-8 border-spacing-1 max-sm:border-spacing-y-4 text-textColor border-separate w-full ">
           <thead>
@@ -41,6 +49,8 @@ const Appointments = () => {
       )}
 
       {isLoading && <ClipLoader size={28} color="blue" />}
+
+      {isError && <h1>{error.message}</h1>}
     </>
   );
 };
