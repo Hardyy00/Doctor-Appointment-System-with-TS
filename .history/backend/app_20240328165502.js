@@ -23,7 +23,7 @@ app.use(
   cors({
     origin: [
       "https://66053998bea706007867c73b--sprightly-lolly-742e08.netlify.app",
-      "https://localhost:5173",
+      "https://localhost:",
     ],
     methods: ["GET", "POST", "PATCH", "DELETE", "PUT"],
     credentials: true,
