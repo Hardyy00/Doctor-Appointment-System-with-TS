@@ -22,7 +22,7 @@ const instance = new RazorPay({
 app.use(
   cors({
     origin: [
-      "https://sprightly-lolly-742e08.netlify.app",
+      "https://sprightly-lolly-742e08.netlify.app/",
       "http://localhost:5173",
     ],
     methods: ["GET", "POST", "PATCH", "DELETE", "PUT"],
