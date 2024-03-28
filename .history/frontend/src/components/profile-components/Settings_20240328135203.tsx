@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { User } from "../../assets/data/doctors";
+import { Doctor, User } from "../../assets/data/doctors";
 import { useDispatchTyped, useSelectorTyped } from "../../hooks/hooks";
 import { useMutation } from "@tanstack/react-query";
 import { updateUser } from "../../util/http";
@@ -24,8 +24,8 @@ const Settings: React.FC = () => {
       setIsSending(false);
     },
   });
-  const user: User | null | undefined = useSelectorTyped(
-    (state) => state.user as User | null | undefined
+  const user: User | Doctor | null | undefined = useSelectorTyped(
+    (state) => state.user
   );
   const imageRef = useRef<HTMLInputElement>(null);
   const [image, setImage] = useState<string>(user?.image ?? "");

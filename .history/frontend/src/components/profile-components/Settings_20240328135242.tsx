@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { User } from "../../assets/data/doctors";
+import { Doctor, User } from "../../assets/data/doctors";
 import { useDispatchTyped, useSelectorTyped } from "../../hooks/hooks";
 import { useMutation } from "@tanstack/react-query";
 import { updateUser } from "../../util/http";
