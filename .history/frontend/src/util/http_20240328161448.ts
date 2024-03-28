@@ -21,7 +21,7 @@ export async function fetchDoctors({
     import.meta.env.VITE_BASE_URI +
       "/patient/getDoctors" +
       `?search=${searchTerm}`,
-    { signal: signal, withCredentials: true }
+    { signal: signal }
   );
 
   return data.doctors;

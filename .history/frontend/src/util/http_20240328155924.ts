@@ -17,12 +17,14 @@ export async function fetchDoctors({
   signal: AbortSignal;
   searchTerm: string;
 }): Promise<DoctorPartial[]> {
-  const { data } = await axios.get(
+  const res: Response = await fetch(
     import.meta.env.VITE_BASE_URI +
       "/patient/getDoctors" +
       `?search=${searchTerm}`,
-    { signal: signal, withCredentials: true }
+    { signal: signal }
   );
+
+  const data = await res.json();
 
   return data.doctors;
 }
@@ -45,7 +47,7 @@ export async function login(userData: {
   role: string;
 }): Promise<{ user: User | Doctor }> {
   const { data } = await axios.post(
-    import.meta.env.VITE_BASE_URI + `/${userData.role}/login`,
+    `/api/${userData.role}/login`,
     {
       ...userData,
     },

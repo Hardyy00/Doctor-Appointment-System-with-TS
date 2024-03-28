@@ -19,20 +19,14 @@ const instance = new RazorPay({
   key_secret: process.env.RAZORPAY_API_SECRET,
 });
 
-app.use(
-  cors({
-    origin: ["http://localhost:5173https://sprightly-lolly-742e08.netlify.app"],
-    methods: ["GET", "POST", "PATCH", "DELETE", "PUT"],
-    credentials: true,
-  })
-);
+app.use(cors());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-app.get("/", checkUser);
-app.use("/patient", userRoutes);
-app.use("/doctor", doctorRoutes);
+app.get("/api/", checkUser);
+app.use("/api/patient", userRoutes);
+app.use("/api/doctor", doctorRoutes);
 // app.use("/api", paymentRoutes);
 
 app.route("/api/checkout").post(async (req, res) => {
